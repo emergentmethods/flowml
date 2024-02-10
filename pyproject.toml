@@ -66,11 +66,10 @@ log_auto_indent = "False"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.semantic_release]
-version_toml = "pyproject.toml:tool.poetry.version"
-commit_author = "Timothy Pogue <tim@emergentmethods.ai>"
-commit_subject = "chore(release): Release {version}"
-commit_message = ""
-upload_to_repository = false
-upload_to_pypi = false
-tag_format = "{version}"
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "semver"
+version_provider = "poetry"
+update_changelog_on_bump = true
+bump_message = "chore(release): Release $new_version"
