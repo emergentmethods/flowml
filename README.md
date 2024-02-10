@@ -1,5 +1,11 @@
 # flowml
 
+![GitLab Release (latest by SemVer)](https://img.shields.io/gitlab/v/release/emergentmethods/flowml?style=flat-square)
+![GitLab](https://img.shields.io/gitlab/license/emergentmethods/flowml?style=flat-square)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/flowml?style=flat-square)
+
+---
+
 flowml is a python package built for supplying time-series forecasting models in a large scale adaptive modeling environment. In particular, flowml is built to be used with [flowdapt](https://docs.flowdapt.ai), a platform for adaptive modeling. Flowdapt has an optimized approach to cluster memory handling which is supported by all models in this library. This optimized cluster-memory approach enables rapid inferencing, quick re-training, cheap concept-drift-detection, and easy hyperparameter tuning. Currently, the library provides models for:
 
 - LSTM direct regression (PyTorchLSTMDirect)
