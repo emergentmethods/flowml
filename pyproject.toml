@@ -3,7 +3,7 @@ name = "flowml"
 version = "0.0.0"
 description = "The machine learning components designed for use in Flowdapt."
 authors = ["Emergent Methods <contact@emergentmethods.ai>"]
-license = "MIT"
+license = "Apache-2.0"
 readme = "README.md"
 classifiers = [
     'Development Status :: 3 - Alpha',
