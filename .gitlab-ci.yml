@@ -111,6 +111,36 @@ build-env:
       allow_failure: true
 
 
+# lint:
+#   <<: *use_cached_venv
+#   <<: *no_tag
+#   stage: lint
+#   script:
+#     - flake8 flowml/
+
+
+lint-commit:
+  <<: *use_cached_venv
+  <<: *no_tag
+  stage: lint
+  script:
+    - |
+      # Get the commit message of the last commit
+      commit_message=$(git log -1 --pretty=format:%s)
+
+      # If the commit message starts with "Merge branch", it is a merge commit, so skip the linting.
+      if [[ $commit_message == 'Merge branch'* ]]; then
+        echo "Merge commit detected, skipping lint."
+        exit 0
+      fi
+
+      pip install gitlint
+      # Ensure the commit message is valid
+      # We should always pass this as long as the pusher has the pre-commit hooks installed
+      # but just as a sanity check we'll run it here
+      git log -1 --pretty=%B | gitlint
+
+
 bump-version:
   <<: *use_cached_venv
   <<: *only_protected

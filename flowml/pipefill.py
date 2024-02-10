@@ -1,4 +1,3 @@
-import pandas as pd
 import cloudpickle
 import numpy.typing as npt
 import numpy as np

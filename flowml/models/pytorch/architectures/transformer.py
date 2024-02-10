@@ -1,6 +1,5 @@
 
 import torch.nn as nn
-import torch
 from flowml.models.pytorch.utils import PositionalEncoding
 
 """

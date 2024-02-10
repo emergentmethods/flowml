@@ -1,4 +1,3 @@
-import multiprocessing
 import torch
 from flowdapt.lib.logger import get_logger
 import math
