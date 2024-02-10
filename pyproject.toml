@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "flowml"
-version = "0.0.0"
+version = "0.1.0"
 description = "The machine learning components designed for use in Flowdapt."
 authors = ["Emergent Methods <contact@emergentmethods.ai>"]
 license = "Apache-2.0"
