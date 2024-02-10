@@ -1,0 +1,76 @@
+[tool.poetry]
+name = "flowml"
+version = "0.1.1"
+description = "The machine learning components designed for use in Flowdapt."
+authors = ["Emergent Methods <contact@emergentmethods.ai>"]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'Intended Audience :: Developers',
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.10',
+    'Topic :: Scientific/Engineering :: Artificial Intelligence',
+    'Topic :: Software Development :: Libraries :: Application Frameworks',
+    'Topic :: System :: Distributed Computing',
+    'Topic :: Utilities',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Environment :: Web Environment'
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+scikit-learn = "^1.2.0"
+xgboost = "^1.7.2"
+cloudpickle = "2.2.0"
+flowdapt = "^0.1.0"
+pandas = "^2.0.2"
+torch = { version = "2.0.1" }
+tensorboard = "^2.12.0"
+pynvml = "^11.5.0"
+datasieve = "^0.1.6"
+# Dealing with the torch 2.0.1 bug https://github.com/pytorch/pytorch/issues/100974
+nvidia-cublas-cu11 = { version = "11.10.3.66", platform = 'linux' }
+nvidia-cuda-cupti-cu11 = { version = "11.7.101", platform = 'linux' }
+nvidia-cuda-nvrtc-cu11 = { version = "11.7.99", platform = 'linux' }
+nvidia-cuda-runtime-cu11 = { version = "11.7.99", platform = 'linux' }
+nvidia-cudnn-cu11 = { version = "8.5.0.96", platform = 'linux' }
+nvidia-cufft-cu11 = { version = "10.9.0.58", platform = 'linux' }
+nvidia-curand-cu11 = { version = "10.2.10.91", platform = 'linux' }
+nvidia-cusolver-cu11 = { version = "11.4.0.1", platform = 'linux' }
+nvidia-cusparse-cu11 = { version = "11.7.4.91", platform = 'linux' }
+nvidia-nccl-cu11 = { version = "2.14.3", platform = 'linux' }
+nvidia-nvtx-cu11 = { version = "11.7.91", platform = 'linux' }
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+pytest-asyncio = "^0.21.0"
+coverage = "^7.2.3"
+pytest-mock = "^3.10.0"
+
+
+[tool.pytest.ini_options]
+addopts = "-s -p no:warnings"
+testpaths = [
+    "tests",
+]
+asyncio_mode = "auto"
+log_cli = "True"
+log_cli_level = "INFO"
+log_auto_indent = "False"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.semantic_release]
+version_toml = "pyproject.toml:tool.poetry.version"
+commit_author = "Timothy Pogue <tim@emergentmethods.ai>"
+commit_subject = "chore(release): Release {version}"
+commit_message = ""
+upload_to_repository = false
+upload_to_pypi = false
+tag_format = "{version}"
